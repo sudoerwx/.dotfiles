@@ -38,6 +38,8 @@ vim.keymap.set('v', "<F2>", ":Ray<CR>", {})
 vim.keymap.set('n', "gdd", ":lua require('neogen').generate()<CR>", { noremap = true, silent = true })
 -- Make current file executable
 vim.keymap.set('n', '<leader>x', ':!chmod +x %<CR>', {})
+-- vim.keymap.set('n', '-', ':!xdg-open %<CR>', {})
+
 -- vim.keymap.set('n',"<F8>", ":SymbolsOutline<CR>",{})
 -- Line swapping
 -- vim.keymap.set('n','<c-j>', ' :m .+1<CR>==',{})

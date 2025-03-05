@@ -85,6 +85,8 @@ return {
                 "vimls",
                 "ts_ls",
                 "jdtls",
+                "eslint_d",
+                "prettier_d",
                 -- 'lua-language-server',
                 -- 'json-to-struct',
                 -- 'misspell',
@@ -195,6 +197,8 @@ return {
         null_ls.setup({
             sources = {
                 null_ls.builtins.formatting.prettierd,
+                null_ls.builtins.formatting.eslint_d,
+
             },
         })
         vim.diagnostic.config({
