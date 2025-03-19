@@ -75,6 +75,11 @@ autocmd({ 'CursorMoved', 'BufEnter' }, {
     end
 })
 
+-- autocmd('FileType', {
+--     pattern = 'netrw',
+--     command = 'setl bufhidden=wipe',
+-- })
+
 
 -- autocmd('ColorScheme', {
 --   pattern = '*',

@@ -1,7 +1,7 @@
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.foldlevelstart = 99
-vim.opt.clipboard = 'unnamedplus'                 -- Copy/paste to system clipboard
+vim.opt.clipboard = 'unnamedplus' -- Copy/paste to system clipboard
 vim.opt.smartcase = true
 vim.opt.ignorecase = true
 
@@ -74,7 +74,6 @@ vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime = 50
-
 -- vim.opt.colorcolumn = "80"
 
 
@@ -167,3 +166,6 @@ vim.opt.wrap = true
 -- vim.g.ctrlp_extensions = {
 --   'branches'
 -- }
+vim.g.netrw_fastbrowse = 0
+vim.g.netrw_keepdir = 0
+vim.g.netrw_localcopydircmd = 'cp -r'
