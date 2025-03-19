@@ -1,12 +1,25 @@
 return {
-    { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
     "nvim-telescope/telescope.nvim",
     tag = "0.1.5",
     dependencies = {
-        "nvim-lua/plenary.nvim"
+        "nvim-lua/plenary.nvim",
+        { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
     },
     config = function()
-        require('telescope').setup {
+        local file_ignore_patterns = {
+            "yarn%.lock",
+            "node_modules/",
+            "raycast/",
+            "dist/",
+            "%.next",
+            "%.git/",
+            "%.gitlab/",
+            "build/",
+            "target/",
+            "package%-lock%.json",
+            "swagger.*ui.*"
+        }
+        require('telescope').setup({
             extensions = {
                 fzf = {
                     fuzzy = true,                   -- false will only do exact matching
@@ -16,11 +29,14 @@ return {
                     -- the default case_mode is "smart_case"
                 }
             }
-        }
-        require('telescope').load_extension('fzf')
+        })
         local builtin = require('telescope.builtin')
-        vim.keymap.set('n', '<leader>ff', function() require('telescope.builtin').find_files({ hidden = true }) end, {})
-        vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
+        vim.keymap.set('n', '<leader>ff', function() builtin.find_files({ hidden = true }) end, {})
+        vim.keymap.set('n', '<leader>fg', function()
+            builtin.live_grep({
+                file_ignore_patterns = file_ignore_patterns,
+            })
+        end, {})
         vim.keymap.set('n', '<leader>fb', builtin.current_buffer_fuzzy_find, {})
         vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
         vim.keymap.set('n', '<leader>fr', builtin.resume, {})
@@ -30,5 +46,6 @@ return {
         vim.keymap.set('n', '<leader>fp', builtin.pickers, {})
         vim.keymap.set('n', '<leader>f<leader>', builtin.builtin, {})
         vim.keymap.set('n', '<C-p>', builtin.oldfiles, {})
+        require('telescope').load_extension('fzf')
     end
 }
