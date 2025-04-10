@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+if [[ -z $STOW_FOLDERS ]]; then
+    STOW_FOLDERS="nvim,zsh,kitty,tmux"
+    # STOW_FOLDERS="nvim,zsh,i3,kitty,polybar,tmux,yabai,skhd"
+fi
+
+if [[ -z $DOTFILES ]]; then
+    DOTFILES=$HOME/.dotfiles
+fi
+
+# prompt wahat script to run install or clean-env
+echo "Do you want to install or clean-env?"
+read -p "Enter install or clean-env: " script
+
+if [[ $script == "install" ]]; then
+    STOW_FOLDERS=$STOW_FOLDERS DOTFILES=$DOTFILES $DOTFILES/stow/install
+elif [[ $script == "clean-env" ]]; then
+    STOW_FOLDERS=$STOW_FOLDERS DOTFILES=$DOTFILES $DOTFILES/stow/clean-env
+else
+    echo "Invalid input"
+fi
