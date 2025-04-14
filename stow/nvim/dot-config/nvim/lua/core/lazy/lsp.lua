@@ -85,8 +85,8 @@ return {
                 "vimls",
                 "ts_ls",
                 "jdtls",
-                "eslint_d",
-                "prettier_d",
+                -- "eslint_d",
+                -- "prettierd",
                 -- 'lua-language-server',
                 -- 'json-to-struct',
                 -- 'misspell',
@@ -185,8 +185,8 @@ return {
             }),
             sources = cmp.config.sources({
                 { name = 'nvim_lsp' },
+                { name = 'path' },
                 { name = 'luasnip' }, -- For luasnip users.
-                { name = 'path' }
             }, {
                 { name = 'buffer' },
             })
