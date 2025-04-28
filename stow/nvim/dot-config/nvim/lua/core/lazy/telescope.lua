@@ -32,8 +32,20 @@ return {
         })
         local builtin = require('telescope.builtin')
 
-        vim.keymap.set('n', '<leader>fw', function() builtin.grep_string({ search = vim.fn.input("Grep For > ")}) end, {})
-        vim.keymap.set('n', '<leader>ff', function() builtin.find_files({ hidden = true }) end, {})
+        vim.keymap.set('n', '<leader>fw', function()
+            builtin.grep_string({
+                search = vim.fn.input("Grep For > "),
+
+                file_ignore_patterns = file_ignore_patterns,
+            })
+        end, {})
+        vim.keymap.set('n', '<leader>ff', function()
+            builtin.find_files({
+                hidden = true,
+
+                file_ignore_patterns = file_ignore_patterns,
+            })
+        end, {})
         vim.keymap.set('n', '<leader>fg', function()
             builtin.live_grep({
                 file_ignore_patterns = file_ignore_patterns,

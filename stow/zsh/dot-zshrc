@@ -169,3 +169,6 @@ export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 export PYTHONPATH=/opt/local/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages:/opt/local/lib/python2.7/site-packages:${PYTHONPATH}
 
 alias vim='nvim'
+
+# Generated for envman. Do not edit.
+[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
