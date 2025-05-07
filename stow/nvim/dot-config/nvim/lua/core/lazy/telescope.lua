@@ -8,14 +8,19 @@ return {
     config = function()
         local file_ignore_patterns = {
             "yarn%.lock",
-            "node_modules/",
-            "raycast/",
-            "dist/",
+            "^node_modules/",
+            "/node_modules/",
+            "^raycast/",
+            "/raycast/",
+            "^dist/",
+            "/dist/",
             "%.next",
             "%.git/",
             "%.gitlab/",
-            "build/",
-            "target/",
+            "^build/",
+            "/build/",
+            "^target/",
+            "/target/",
             "package%-lock%.json",
             "swagger.*ui.*"
         }
