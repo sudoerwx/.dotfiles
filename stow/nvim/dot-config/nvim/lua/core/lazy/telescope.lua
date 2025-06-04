@@ -24,6 +24,44 @@ return {
             "package%-lock%.json",
             "swagger.*ui.*"
         }
+
+        local file_ignore_patterns_grep = {
+            "yarn%.lock",
+            "^node_modules/",
+            "/node_modules/",
+            "^raycast/",
+            "/raycast/",
+            "^dist/",
+            "/dist/",
+            "%.next",
+            "%.git/",
+            "%.gitlab/",
+            "^build/",
+            "/build/",
+            "^target/",
+            "/target/",
+            "package%-lock%.json",
+            "swagger.*ui.*",
+            "%.png",
+            "%.jpg",
+            "%.jpeg",
+            "%.gif",
+            "%.webp",
+            "%.svg",
+            "%.ico",
+            "%.bmp",
+            "%.tiff",
+            "%.webm",
+            "%.mp4",
+            "%.mkv",
+            "%.avi",
+            "%.mov",
+            "%.flv",
+            "%.wmv",
+            "%.mp3",
+            "%.wav",
+            "%.ogg",
+        }
         require('telescope').setup({
             extensions = {
                 fzf = {
@@ -41,7 +79,7 @@ return {
             builtin.grep_string({
                 search = vim.fn.input("Grep For > "),
 
-                file_ignore_patterns = file_ignore_patterns,
+                file_ignore_patterns = file_ignore_patterns_grep,
             })
         end, {})
         vim.keymap.set('n', '<leader>ff', function()
@@ -53,7 +91,7 @@ return {
         end, {})
         vim.keymap.set('n', '<leader>fg', function()
             builtin.live_grep({
-                file_ignore_patterns = file_ignore_patterns,
+                file_ignore_patterns = file_ignore_patterns_grep,
             })
         end, {})
         vim.keymap.set('n', '<leader>fb', builtin.current_buffer_fuzzy_find, {})
