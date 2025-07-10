@@ -14,6 +14,9 @@ return {
                     rust = { "rustfmt", lsp_format = "fallback" },
                     -- Conform will run the first available formatter
                     javascript = { "prettierd", 'eslint_d', lsp_format = "first", --[[ 'eslint', "prettier",stop_after_first = true, ]] },
+                    javascriptreact = { "prettierd", 'eslint_d', lsp_format = "first", --[[ 'eslint', "prettier",stop_after_first = true, ]] },
+                    typescript = { "prettierd", 'eslint_d', lsp_format = "first", --[[ 'eslint', "prettier",stop_after_first = true, ]] },
+                    typescriptreact = { "prettierd", 'eslint_d', lsp_format = "first", --[[ 'eslint', "prettier",stop_after_first = true, ]] },
                 },
             })
         end
