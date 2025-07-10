@@ -17,7 +17,7 @@ local function tsformat(bufnr)
         first(bufnr, "prettierd", "prettier"),
         first(bufnr, 'eslint_d', 'eslint'),
         lsp_format =
-        "first" --[[ 'eslint', "prettier",stop_after_first = true, ]]
+        "fallback" --[[ 'eslint', "prettier",stop_after_first = true, ]]
     }
 end
 
