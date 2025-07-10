@@ -1,7 +1,6 @@
 return {
     "neovim/nvim-lspconfig",
     dependencies = {
-        "jose-elias-alvarez/null-ls.nvim",
         "stevearc/conform.nvim",
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
@@ -63,7 +62,8 @@ return {
             vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, bufopts)
             vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
             vim.keymap.set('n', '<leader>==', function()
-                vim.lsp.buf.format { filter = function(client) return client.name ~= "ts_ls" end }
+                -- vim.lsp.buf.format { filter = function(client) return client.name ~= "ts_ls" end }
+                require("conform").format({ bufnr = bufnr })
             end, bufopts)
         end
 
@@ -193,14 +193,6 @@ return {
         })
 
 
-        local null_ls = require("null-ls")
-        null_ls.setup({
-            sources = {
-                null_ls.builtins.formatting.prettierd,
-                null_ls.builtins.formatting.eslint_d,
-
-            },
-        })
         vim.diagnostic.config({
             virtual_text = {
                 severity = { vim.diagnostic.severity.ERROR, vim.diagnostic.severity.WARN },
