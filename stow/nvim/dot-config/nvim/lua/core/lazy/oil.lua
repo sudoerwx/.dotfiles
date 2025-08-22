@@ -71,7 +71,7 @@ return {
                     },
 
                     ["<leader>ff"] = {
-                        desc = "Toggle file detail view",
+                        desc = "Search files in directory",
                         callback = function()
                             local oil = require("oil")
                             local cwd = oil.get_current_dir()
@@ -84,7 +84,7 @@ return {
                     },
 
                     ["<leader>fg"] = {
-                        desc = "Toggle file detail view",
+                        desc = "Grep files in directory",
                         callback = function()
                             local oil = require("oil")
                             local cwd = oil.get_current_dir()
