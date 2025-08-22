@@ -30,42 +30,9 @@ return {
                 },
             },
         })
-        --
-        --
-        -- local lspconfig = require('lspconfig')
-        -- local utils = require('utils.lsp')
-        --
-        -- -- add capabilities from nvim-cmp
-        -- local capabilities = vim.lsp.protocol.make_client_capabilities()
-        -- capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
-        --
-        --
-        function common_on_attach(client, bufnr)
-            -- This function defines the on_attach function for several languages which share the same key-bidings
-            -- Enable completion triggered by <c-x><c-o>
-            vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
-
-            -- Mappings.
-            -- See `:help vim.lsp.*` for documentation on any of the below functions
-            local bufopts = { noremap = true, silent = true, buffer = bufnr }
-            vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
-            vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
-            vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
-            vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
-            vim.keymap.set({ 'n', 'i' }, '<C-k>', vim.lsp.buf.signature_help, bufopts)
-            vim.keymap.set('n', 'gt', vim.lsp.buf.type_definition, bufopts)
-            vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, bufopts)
-            vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, bufopts)
-            vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
-            -- vim.keymap.set('n', '<leader>==', function()
-            --     vim.lsp.buf.format { filter = function(client) return client.name ~= "ts_ls" end }
-            -- end, bufopts)
-        end
-
-        -- vim.keymap.set('n', 'gn', ']d', bufopts)
-        -- vim.keymap.set('n', 'gp', '[d', bufopts)
 
         require("mason").setup()
+
         require("mason-lspconfig").setup({
             ensure_installed = {
                 "lua_ls",
@@ -99,69 +66,37 @@ return {
                 "angularls",
                 "tailwindcss"
             },
-            handlers = {
-                function(server_name) -- default handler (optional)
-                    require("lspconfig")[server_name].setup {
-                        on_attach = common_on_attach,
-                        capabilities = capabilities
-                    }
-                end,
+        })
 
-                -- zls = function()
-                --   local lspconfig = require("lspconfig")
-                --   lspconfig.zls.setup({
-                --     root_dir = lspconfig.util.root_pattern(".git", "build.zig", "zls.json"),
-                --     settings = {
-                --       zls = {
-                --         enable_inlay_hints = true,
-                --         enable_snippets = true,
-                --         warn_style = true,
-                --       },
-                --     },
-                --   })
-                --   vim.g.zig_fmt_parse_errors = 0
-                --   vim.g.zig_fmt_autosave = 0
-                -- end,
-                ["ts_ls"] = function()
-                    local lspconfig = require("lspconfig")
-                    lspconfig.ts_ls.setup {
-                        on_attach = common_on_attach,
-                        capabilities = capabilities,
-                        settings = {
-                            tsserver_file_preferences = {
-                                includeInlayParameterNameHints = 'all',
-                            },
-                            -- tsserver_format_enable = false
-                        }
-                    }
-                end,
 
-                ["lua_ls"] = function()
-                    local lspconfig = require("lspconfig")
-                    lspconfig.lua_ls.setup {
-                        on_attach = common_on_attach,
-                        capabilities = capabilities,
-                        settings = {
-                            Lua = {
-                                runtime = { version = "Lua 5.1" },
-                                diagnostics = {
-                                    globals = { "bit", "vim", "it", "describe", "before_each", "after_each" },
-                                }
-                            }
-                        }
-                    }
-                end,
+        vim.lsp.config('ts_ls', {
+
+            settings = {
+                tsserver_file_preferences = {
+                    includeInlayParameterNameHints = 'all',
+                },
+                -- tsserver_format_enable = false
             }
         })
 
-        -- Mappings.
-        -- See `:help vim.diagnostic.*` for documentation on any of the below functions
-        local opts = { noremap = true, silent = true }
+        vim.lsp.config('ts_ls', {
 
-        -- vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, opts)
-        vim.keymap.set('n', '<leader>dp', vim.diagnostic.goto_prev, opts)
-        vim.keymap.set('n', '<leader>dn', vim.diagnostic.goto_next, opts)
-        vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, opts)
+            settings = {
+                Lua = {
+                    runtime = { version = "Lua 5.1" },
+                    diagnostics = {
+                        globals = { "bit", "vim", "it", "describe", "before_each", "after_each" },
+                    }
+                }
+            }
+
+        })
+
+
+
+
+
+
 
         local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
@@ -175,7 +110,7 @@ return {
                 ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
                 ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
                 -- ['<C-y>'] = cmp.mapping.confirm({ select = true }),
-                ['<CR>'] = cmp.mapping.confirm({ select = fales }),
+                ['<CR>'] = cmp.mapping.confirm({ select = false }),
                 ["<C-Space>"] = cmp.mapping.complete(),
             }),
             sources = cmp.config.sources({
@@ -184,6 +119,7 @@ return {
                 { name = 'luasnip' }, -- For luasnip users.
             }, {
                 { name = 'buffer' },
+                { name = 'luasnip' }, -- For luasnip users.
             })
         })
 
@@ -208,89 +144,3 @@ return {
         })
     end
 }
-
-
--- {
---       function(serverName)
---         local config = {
---           on_attach = utils.common_on_attach,
---           capabilities = capabilities,
---         }
---
---         if serverName == "sumneko_lua" then
---           config.settings = {
---             Lua = {
---               runtime = {
---                 -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
---                 version = 'LuaJIT',
---               },
---               diagnostics = {
---                 -- Get the language server to recognize the `vim` global
---                 globals = { 'vim' },
---               },
---               workspace = {
---                 -- Make the server aware of Neovim runtime files
---                 library = vim.api.nvim_get_runtime_file("", true),
---               },
---               -- Do not send telemetry data containing a randomized but unique identifier
---               telemetry = {
---                 enable = false,
---               },
---             },
---           }
---         end
---
---
---         if serverName == "eslint" then
---           config.on_attach = function(client, bufnr)
---             -- neovim's LSP client does not currently support dynamic capabilities registration, so we need to set
---             -- the server capabilities of the eslint server ourselves!
---             client.server_capabilities.document_formatting = true
---             utils.common_on_attach(client, bufnr)
---           end
---           config.settings = {
---             format = { enable = true }, -- this will enable formatting
---           }
---         end
---
---
---         if serverName == "emmet_ls" then
---           config.filetypes = { "html", "css", "scss" }
---         end
---
---         if serverName == "angularls" then
---           config.filetypes = { "javascriptreact", "typescriptreact", "typescript.tsx", "htmlangular", "js", "javascript",
---             "ts", "typescript", "html" }
---         end
---
---         if serverName == "ts_ls" then
---           config.settings = {
---             preferences = {
---               includeInlayParameterNameHints = 'all',
---             },
---
---             ['typescript.format.enable'] = false
---           }
---         end
---
---
---
---         if serverName == "rust_analyzer" then
---           config.settings = {
---             ["rust-analyzer"] = {
---               assist = {
---                 importGranularity = "module",
---                 importPrefix = "self",
---               },
---               cargo = {
---                 loadOutDirsFromCheck = true
---               },
---               procMacro = {
---                 enable = true
---               },
---             }
---           }
---         end
---         lspconfig[serverName].setup(config)
---       end
---     }
