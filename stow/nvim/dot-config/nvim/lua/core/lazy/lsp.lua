@@ -79,7 +79,7 @@ return {
             }
         })
 
-        vim.lsp.config('ts_ls', {
+        vim.lsp.config('lua_ls', {
 
             settings = {
                 Lua = {
@@ -91,8 +91,6 @@ return {
             }
 
         })
-
-
 
 
 
