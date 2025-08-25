@@ -71,7 +71,16 @@ return {
                     case_mode = "smart_case",       -- or "ignore_case" or "respect_case"
                     -- the default case_mode is "smart_case"
                 }
-            }
+            },
+            defaults = {
+                layout_strategy = 'vertical'
+                -- layout_config = {
+                --     vertical = { width = 0.9 }
+                --     -- other layout configuration here
+                -- },
+                -- other defaults configuration here
+            },
+
         })
         local builtin = require('telescope.builtin')
 
