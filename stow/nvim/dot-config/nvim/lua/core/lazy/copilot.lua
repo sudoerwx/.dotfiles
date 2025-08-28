@@ -2,7 +2,7 @@ return {
     {
         "CopilotC-Nvim/CopilotChat.nvim",
         dependencies = {
-            { "zbirenbaum/copilot.lua" },             -- or zbirenbaum/copilot.lua
+            { "zbirenbaum/copilot.lua" },                   -- or zbirenbaum/copilot.lua
             { "nvim-lua/plenary.nvim", branch = "master" }, -- for curl, log and async functions
         },
         opts = {
@@ -15,6 +15,7 @@ return {
         "zbirenbaum/copilot.lua",
         cmd = "Copilot",
         opts = {
+            copilot_model = "gpt-4o-copilot",
             panel = {
                 enabled = true,
                 auto_refresh = true,
