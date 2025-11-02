@@ -8,13 +8,13 @@ echo "Setting up Neovim configuration..."
 
 general_to_install=(curl fzf cmake make)
 ubuntu_to_install=(
-    golang-go 
+    golang-go
     python3-pip
-    )
+)
 macos_to_install=(
     golang
     python3
-    )
+)
 install_package general_to_install ubuntu_to_install macos_to_install
 
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then

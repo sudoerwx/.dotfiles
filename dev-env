@@ -1,15 +1,13 @@
 #!/usr/bin/env bash
 
 script_dir=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
-filter=""
-dry="0"
+source "$script_dir/bash-helpers"
 
+dry="0"
 
 while [[ $# -gt 0 ]]; do
     if [[ $1 == "--dry" ]]; then
         dry="1"
-    else
-        filter="$1"
     fi
     shift
 done
@@ -34,18 +32,10 @@ execute() {
     "$@"
 }
 
+log "--------- dev-env ---------"
 
-echo "$script_dir - $filter"
 
 cd "$script_dir" || exit
 
-scripts=$(find ./runs -maxdepth 1 -mindepth 1  -type f)
-
-for script in $scripts; do
-    if echo "$script" | grep -qv "$filter"; then
-        log "filtered: $script"
-        continue
-    fi
-
-    execute ./"$script"
-done
+copy_dir .config "$XDG_CONFIG_HOME"
+copy_file .specialrc ~/

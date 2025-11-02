@@ -31,6 +31,8 @@ return {
                     lsp_format = "fallback",
                 },
                 formatters_by_ft = {
+                    bash = { "beautysh" },
+                    sh = { "beautysh" },
                     lua = { "stylua" },
                     -- Conform will run multiple formatters sequentially
                     python = { "isort", "black" },
