@@ -37,5 +37,7 @@ log "--------- dev-env ---------"
 
 cd "$script_dir" || exit
 
-copy_dir .config "$XDG_CONFIG_HOME"
-copy_file .specialrc ~/
+copy_dir ./bin/.config ~/.config
+copy_file ./bin/antigen.zsh ~/
+copy_file ./bin/.zshrc ~/
+copy_file ./bin/.tmux.conf ~/

@@ -1,8 +1,0 @@
-#!/usr/bin/env zsh
-pushd "$DOTFILES/stow"
-for folder in $(echo $STOW_FOLDERS | sed "s/,/ /g")
-do
-    echo "Adding $folder"
-    stow -t $HOME -R --dotfiles $folder
-done
-popd

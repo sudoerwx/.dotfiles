@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-pushd "$DOTFILES/stow" || exit
-for folder in $(echo "$STOW_FOLDERS" | sed "s/,/ /g")
-do
-    echo "Removing $folder"
-    stow --dotfiles -t "$HOME" -D "$folder"
-done
-popd || exit
-
