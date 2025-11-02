@@ -27,7 +27,7 @@ global_npm_packages=(
     prettier
     nodemon
     pm2
-    prettier_d
+    @fsouza/prettierd
     eslint_d
     yarn
     ts-node
