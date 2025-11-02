@@ -15,10 +15,10 @@ general_to_install=(
 install_package general_to_install
 
 echo "Installing Node Version Manager (n)..."
-npm install -g n
+sudo npm install -g n
 
 echo "Installing Node.js version: $node_version ..."
-n "$node_version"
+sudo n "$node_version"
 
 echo "Installing global npm packages..."
 global_npm_packages=(
@@ -33,7 +33,7 @@ global_npm_packages=(
     ts-node
 )
 
-npm install -g "${global_npm_packages[@]}"
+sudo npm install -g "${global_npm_packages[@]}"
 
 
 
