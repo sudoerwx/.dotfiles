@@ -109,6 +109,7 @@ copy_dir() {
     dirs=$(find . -maxdepth 1 -mindepth 1 -type d)
     for dir in $dirs; do
         execute rm -rf "$to"/"$dir"
+        execute mkdir -p "$to"/"$dir"
         execute cp -r "$dir" "$to"/"$dir"
     done
     popd > /dev/null || exit
