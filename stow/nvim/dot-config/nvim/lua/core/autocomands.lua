@@ -38,22 +38,7 @@ autocmd({ "CursorHold" }, {
         })
     end
 })
---
--- autocmd('BufReadPost,FileReadPost', {
---   pattern = '*',
---   command='normal zR'
--- })
 
-
-
--- augroup('import_cost_auto_run', { clear = true })
--- autocmd({ 'InsertLeave', 'BufWrite', 'BufEnter' }, {
---   group = 'import_cost_auto_run',
---   pattern = { '*.js', '*.jsx', '*.ts', '*.tsx' },
---   command = 'ImportCost'
--- })
---
---
 -- Highlight on yank
 augroup('YankHighlight', { clear = true })
 autocmd('TextYankPost', {
@@ -83,22 +68,6 @@ autocmd({ 'CursorMoved', 'BufEnter' }, {
         end
     end
 })
-
--- autocmd('FileType', {
---     pattern = 'netrw',
---     command = 'setl bufhidden=wipe',
--- })
-
-
--- autocmd('ColorScheme', {
---   pattern = '*',
---   command = "highlight NormalFloat guibg=#1f2335"
--- })
--- autocmd('ColorScheme', {
---   pattern = '*',
---   command = "highlight FloatBorder guifg=white guibg=#1f2335"
--- })
-
 
 local signs = { Error = "", Warn = "", Hint = "", Info = "" }
 for type, icon in pairs(signs) do

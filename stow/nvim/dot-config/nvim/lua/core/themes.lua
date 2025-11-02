@@ -1,11 +1,12 @@
 vim.cmd [[
- colorscheme   kanagawa "catppuccin "gruvbox-material " kanagawa nord gruvbox-material nordic tokyonight
+colorscheme   gruvbox-material "catppuccin kanagawa nord gruvbox-material nordic tokyonight
 hi SignColumn guibg=none
 " hi CursorLineNR guibg=None
 " hi CursorLine guibg=None
 " hi Normal guibg=none ctermbg=NONE
 " hi NormalFloat guibg=none ctermbg=NONE
 " hi FloatBorder guifg=#5eacd3 guibg=none ctermbg=none
+
 hi LineNr guifg=#5eacd3 guibg=none
 hi HighlightedyankRegion term=bold ctermbg=0 guibg=#EEE8A9
 

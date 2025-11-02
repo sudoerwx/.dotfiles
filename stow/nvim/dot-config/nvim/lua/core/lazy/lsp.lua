@@ -16,12 +16,6 @@ return {
 
     config = function()
         local cmp = require('cmp')
-        local cmp_lsp = require("cmp_nvim_lsp")
-        local capabilities = vim.tbl_deep_extend(
-            "force",
-            {},
-            vim.lsp.protocol.make_client_capabilities(),
-            cmp_lsp.default_capabilities())
 
         require("fidget").setup({
             notification = {      -- NOTE: you're missing this outer table
@@ -47,24 +41,13 @@ return {
                 "vimls",
                 "ts_ls",
                 "jdtls",
+                'shellcheck',
+                "angularls",
+                "tailwindcss",
+                'misspell',
+                -- "emmet-ls",
                 -- "eslint_d",
                 -- "prettierd",
-                -- 'lua-language-server',
-                -- 'json-to-struct',
-                -- 'misspell',
-                -- 'shellcheck',
-                -- 'vint',
-                -- "html-lsp",
-                -- "css-lsp",
-                -- "cssmodules-language-server",
-                -- "eslint-lsp",
-                -- "emmet-ls",
-                -- "json-lsp",
-                -- "vim-language-server",
-                -- "rust-analyzer",
-                -- "tailwindcss-language-server"
-                "angularls",
-                "tailwindcss"
             },
         })
 
@@ -129,7 +112,7 @@ return {
             },
             signs = true,
             underline = true,
-            -- update_in_insert = true,
+            update_in_insert = true,
             severity_sort = true,
             float = {
                 focusable = false,

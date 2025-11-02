@@ -1,6 +1,6 @@
 return {
     'HiPhish/rainbow-delimiters.nvim',
-    -- 'sainnhe/gruvbox-material',
+    'sainnhe/gruvbox-material',
     -- 'shaunsingh/nord.nvim',
     -- {
     --   'AlexvZyl/nordic.nvim',
