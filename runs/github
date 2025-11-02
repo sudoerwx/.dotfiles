@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+script_dir=$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)
+source "$script_dir/bash-helpers"
+
+echo "Setting up Git and GitHub CLI..."
+
+general_to_install=(
+    git
+    gh
+)
+
+install_package general_to_install
+
+echo "Configuring Git..."
+git config --global user.name "sudoerwx"
+git config --global user.email "nazarvoronych@gmail.com"
+git config --global core.editor "nvim"
+
+echo "Git/GitHub setup completed."

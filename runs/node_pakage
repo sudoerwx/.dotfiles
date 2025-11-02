@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+
+script_dir=$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)
+source "$script_dir/bash-helpers"
+
+echo "Setting up Node.js ..."
+
+node_version="lts"
+
+general_to_install=(
+    nodejs
+    npm
+)
+
+install_package general_to_install
+
+echo "Installing Node Version Manager (n)..."
+npm install -g n
+
+echo "Installing Node.js version: $node_version ..."
+n "$node_version"
+
+echo "Installing global npm packages..."
+global_npm_packages=(
+    typescript
+    eslint
+    prettier
+    nodemon
+    pm2
+    prettier_d
+    eslint_d
+    yarn
+    ts-node
+)
+
+npm install -g "${global_npm_packages[@]}"
+
+
+

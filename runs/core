@@ -9,8 +9,10 @@ general_to_install=(
     git
     curl
     cmake
+    make
     fzf
     ripgrep
+    tmux
 )
 
 ubuntu_to_install=(
@@ -18,11 +20,13 @@ ubuntu_to_install=(
     libssl-dev
     python3-pip
     libc6
+    golang-go
 )
 
 macos_to_install=(
     wget
     python3
+    go
 )
 
 # Run the unified installer
