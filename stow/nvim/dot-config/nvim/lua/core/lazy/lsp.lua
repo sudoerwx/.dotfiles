@@ -44,7 +44,7 @@ return {
                 'shellcheck',
                 "angularls",
                 "tailwindcss",
-                'misspell',
+                -- 'misspell',
                 -- "emmet-ls",
                 -- "eslint_d",
                 -- "prettierd",
