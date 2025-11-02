@@ -96,13 +96,11 @@ install_package() {
 
 
 copy_file() {
-    pushd "$1" > /dev/null || exit
     from=$1
     to=$2
     name=$(basename "$from")
     execute rm "$to"/"$name"
     execute cp "$from" "$to"/"$name"
-    popd > /dev/null || exit
 }
 
 copy_dir() {
