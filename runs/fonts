@@ -1,0 +1,66 @@
+#!/usr/bin/env bash
+
+# ==========================================
+#  Cross-platform Font Installer
+#  Works on Ubuntu and macOS
+# ==========================================
+#
+
+# ----- Config -----
+# Path where your font files are stored
+script_dir=$(cd "$(dirname "$(realpath "${BASH_SOURCE[0]}")")/.." && pwd)
+FONTS_DIR="$script_dir/fonts"
+
+# ------------------
+
+detect_os() {
+  case "$(uname -s)" in
+    Linux*)  echo "linux" ;;
+    Darwin*) echo "macos" ;;
+    *)       echo "unknown" ;;
+  esac
+}
+
+install_fonts_linux() {
+  local target_dir="$HOME/.local/share/fonts"
+  echo "📦 Installing fonts for Linux..."
+  mkdir -p "$target_dir"
+  cp -v ./*.ttf ./*.otf "$target_dir" 2>/dev/null || true
+  fc-cache -f "$target_dir"
+  echo "✅ Fonts installed to $target_dir"
+}
+
+install_fonts_macos() {
+  local target_dir="$HOME/Library/Fonts"
+  echo "📦 Installing fonts for macOS..."
+  mkdir -p "$target_dir"
+  cp -v ./*.ttf ./*.otf "$target_dir" 2>/dev/null || true
+  echo "✅ Fonts installed to $target_dir"
+}
+
+main() {
+  if [[ ! -d "$FONTS_DIR" ]]; then
+    echo "❌ Font directory not found: $FONTS_DIR"
+    exit 1
+  fi
+
+  pushd "$FONTS_DIR" >/dev/null
+
+  local os
+  os=$(detect_os)
+  echo "Detected OS: $os"
+
+  case "$os" in
+    linux) install_fonts_linux ;;
+    macos) install_fonts_macos ;;
+    *)
+      echo "❌ Unsupported OS: $os"
+      popd >/dev/null
+      exit 1
+      ;;
+  esac
+
+  popd >/dev/null
+}
+
+main "$@"

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-script_dir=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+script_dir=$(cd "$(dirname "$(realpath "${BASH_SOURCE[0]}")")" && pwd)
 
 # install_package:
 # Installs packages for general, Ubuntu-specific, and macOS-specific arrays.

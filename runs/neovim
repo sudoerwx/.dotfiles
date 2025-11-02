@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-script_dir=$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)
+script_dir=$(cd "$(dirname "$(realpath "${BASH_SOURCE[0]}")")/.." && pwd)
 source "$script_dir/bash-helpers"
 
 echo "Setting up Neovim configuration..."
