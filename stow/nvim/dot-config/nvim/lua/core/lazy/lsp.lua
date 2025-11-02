@@ -44,7 +44,6 @@ return {
                 "jdtls",
                 "angularls",
                 "tailwindcss",
-                "copilot"
                 -- 'shellcheck',
                 -- 'misspell',
                 -- "emmet-ls",

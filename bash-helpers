@@ -1,0 +1,94 @@
+#!/usr/bin/env bash
+
+
+# install_package:
+# Installs packages for general, Ubuntu-specific, and macOS-specific arrays.
+# Usage:
+#   install_package general_array ubuntu_array macos_array
+# Example:
+#   install_package general_to_install ubuntu_to_install macos_to_install
+#
+# Notes:
+# - Requires Bash 4.3+ for namerefs (local -n)
+# - Each array variable is passed *by name*, not by expansion.
+install_package() {
+ local general_name="${1:-}"
+  local ubuntu_name="${2:-}"
+  local macos_name="${3:-}"
+
+  # Copy arrays by name (Bash 3.x friendly)
+  local -a general_packages=() ubuntu_packages=() macos_packages=()
+  [[ -n "$general_name" ]] && eval "general_packages=(\"\${${general_name}[@]}\")"
+  [[ -n "$ubuntu_name"  ]] && eval "ubuntu_packages=(\"\${${ubuntu_name}[@]}\")"
+  [[ -n "$macos_name"   ]] && eval "macos_packages=(\"\${${macos_name}[@]}\")"
+
+  echo "===================================="
+  echo "   Detecting OS and installing...   "
+  echo "===================================="
+  echo "Detected OSTYPE: $OSTYPE"
+  echo
+
+  if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+    if command -v apt-get &>/dev/null; then
+      echo "Using apt-get package manager."
+
+      # Merge general + ubuntu lists
+      local -a packages_to_install=()
+      [[ ${#general_packages[@]} -gt 0 ]] && packages_to_install+=("${general_packages[@]}")
+      [[ ${#ubuntu_packages[@]}  -gt 0 ]] && packages_to_install+=("${ubuntu_packages[@]}")
+
+      if [[ ${#packages_to_install[@]} -eq 0 ]]; then
+        echo "No packages to install for Ubuntu."
+      else
+        echo "Updating apt cache..."
+        sudo apt-get update -y
+
+        echo "Installing packages:"
+        printf '  - %s\n' "${packages_to_install[@]}"
+        sudo apt-get install -y "${packages_to_install[@]}"
+      fi
+
+    elif command -v yum &>/dev/null; then
+      echo "Using yum package manager."
+      if [[ ${#general_packages[@]} -gt 0 ]]; then
+        echo "Installing general packages via yum:"
+        printf '  - %s\n' "${general_packages[@]}"
+        sudo yum install -y "${general_packages[@]}"
+      else
+        echo "No general packages defined for yum."
+      fi
+    else
+      echo "Error: No supported package manager found (apt-get or yum)."
+      exit 1
+    fi
+
+  elif [[ "$OSTYPE" == "darwin"* ]]; then
+    if command -v brew &>/dev/null; then
+      echo "Using Homebrew package manager."
+
+      # Merge general + macOS lists
+      local -a packages_to_install=()
+      [[ ${#general_packages[@]} -gt 0 ]] && packages_to_install+=("${general_packages[@]}")
+      [[ ${#macos_packages[@]}  -gt 0 ]] && packages_to_install+=("${macos_packages[@]}")
+
+      if [[ ${#packages_to_install[@]} -eq 0 ]]; then
+        echo "No packages to install for macOS."
+      else
+        echo "Installing packages via Homebrew:"
+        printf '  - %s\n' "${packages_to_install[@]}"
+        brew install "${packages_to_install[@]}"
+      fi
+    else
+      echo "Error: Homebrew not found. Install it first: https://brew.sh"
+      exit 1
+    fi
+
+  else
+    echo "Error: Unsupported OS type ($OSTYPE)."
+    exit 1
+  fi
+
+  echo
+  echo "✅ Installation step complete."
+  echo "===================================="
+}

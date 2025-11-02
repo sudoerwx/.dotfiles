@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+
+script_dir=$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)
+source "$script_dir/bash-helpers"
+
+echo "Setting up Neovim configuration..."
+
+
+general_to_install=(curl)
+install_package general_to_install
+
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+    echo "Detected Linux OS."
+    echo "Downloading Neovim for Linux..."
+    curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz
+    echo "Extracting Neovim..."
+    sudo rm -rf /opt/nvim-linux-x86_64
+    echo "Installing Neovim to /opt..."
+    sudo tar -C /opt -xzf nvim-linux-x86_64.tar.gz
+    echo "Cleaning up..."
+    rm nvim-linux-x86_64.tar.gz
+
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+    echo "Detected macOS."
+    echo "Downloading Neovim for macOS..."
+    curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim-macos-x86_64.tar.gz
+    echo "Extracting Neovim..."
+    sudo rm -rf /opt/nvim-macos-x86_64
+    echo "Installing Neovim to /opt..."
+    sudo tar -C /opt -xzf nvim-macos-x86_64.tar.gz
+    echo "Cleaning up..."
+    rm nvim-macos-x86_64.tar.gz
+else
+    echo "Unsupported OS: $OSTYPE"
+    exit 1
+fi
+
+echo "Neovim installation completed."
