@@ -10,7 +10,6 @@ general_to_install=(
     curl
     cmake
     make
-    fzf
     ripgrep
     tmux
 )
@@ -31,3 +30,7 @@ macos_to_install=(
 
 # Run the unified installer
 install_package general_to_install ubuntu_to_install macos_to_install
+
+echo "Installing fzf..."
+go install github.com/junegunn/fzf@latest
+echo "fzf installed"
