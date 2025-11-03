@@ -67,5 +67,5 @@ alias vim='nvim'
 
 export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
 export PATH="$PATH:/opt/nvim-macos-x86_64/bin"
-export PATH="$HOME/.deno/env:$PATH"
+export PATH="$HOME/.deno/bin:$PATH"
 
