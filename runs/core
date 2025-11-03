@@ -12,6 +12,7 @@ general_to_install=(
     make
     ripgrep
     tmux
+    unzip
 )
 
 ubuntu_to_install=(
@@ -34,3 +35,7 @@ install_package general_to_install ubuntu_to_install macos_to_install
 echo "Installing fzf..."
 go install github.com/junegunn/fzf@latest
 echo "fzf installed"
+
+echo "Installing deno..."
+curl -fsSL https://deno.land/install.sh | sh
+echo "deno installed"
