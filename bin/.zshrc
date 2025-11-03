@@ -69,3 +69,5 @@ export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
 export PATH="$PATH:/opt/nvim-macos-x86_64/bin"
 export PATH="$HOME/.deno/bin:$PATH"
 
+export DENO_TLS_CA_STORE=system
+
