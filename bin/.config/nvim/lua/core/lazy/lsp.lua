@@ -59,6 +59,7 @@ return {
                 tsserver_file_preferences = {
                     includeInlayParameterNameHints = 'all',
                 },
+                editor = { suggest = { showSnippets = false } }
                 -- tsserver_format_enable = false
             }
         })

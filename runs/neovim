@@ -6,7 +6,7 @@ source "$script_dir/bash-helpers"
 echo "Setting up Neovim configuration..."
 
 
-general_to_install=(curl fzf cmake make)
+general_to_install=(curl cmake make)
 ubuntu_to_install=(
     golang-go
     python3-pip
@@ -16,6 +16,10 @@ macos_to_install=(
     python3
 )
 install_package general_to_install ubuntu_to_install macos_to_install
+
+echo "Installing fzf..."
+go install github.com/junegunn/fzf@latest
+echo "fzf installed"
 
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     echo "Detected Linux OS."
