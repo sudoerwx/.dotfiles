@@ -32,6 +32,27 @@ execute() {
     "$@"
 }
 
+copy_file() {
+    from=$1
+    to=$2
+    name=$(basename "$from")
+    execute rm "$to"/"$name"
+    execute cp "$from" "$to"/"$name"
+}
+
+copy_dir() {
+    pushd "$1" > /dev/null || exit
+    to=$2
+    dirs=$(find . -maxdepth 1 -mindepth 1 -type d)
+    execute mkdir -p "$to"
+
+    for dir in $dirs; do
+        execute rm -rf "$to"/"$dir"
+        execute cp -r "$dir" "$to"/"$dir"
+    done
+    popd > /dev/null || exit
+}
+
 log "--------- dev-env ---------"
 
 
