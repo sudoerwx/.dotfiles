@@ -14,40 +14,42 @@ return {
     {
         "zbirenbaum/copilot.lua",
         dependencies = {
-            "copilotlsp-nvim/copilot-lsp" 
+            "copilotlsp-nvim/copilot-lsp"
         },
         init = function()
             vim.g.copilot_nes_debounce = 500
+            vim.g.copilot_proxy_strict_ssl = false
+            require('copilot').setup({
+                -- copilot_model = "gpt-4o-copilot",
+                panel = {
+                    enabled = true,
+                    auto_refresh = true,
+                    keymap = {
+                        open = "<M-p>"
+                    },
+                },
+                suggestion = {
+                    enabled = true,
+                    auto_trigger = true,
+                    hide_during_completion = false,
+                    keymap = {
+                        accept = "<M-s>",
+                        next = "<M-w>",
+                        prev = "<M-m>",
+                        dismiss = "<M-x>",
+                    },
+                },
+                nes = {
+                    enabled = true,
+                    keymap = {
+                        accept_and_goto = "<M-e>",
+                        accept = false,
+                        dismiss = "<Esc>",
+                    },
+                }
+
+            })
         end,
         cmd = "Copilot",
-        opts = {
-            -- copilot_model = "gpt-4o-copilot",
-            panel = {
-                enabled = true,
-                auto_refresh = true,
-                keymap = {
-                    open = "<M-p>"
-                },
-            },
-            suggestion = {
-                enabled = true,
-                auto_trigger = true,
-                hide_during_completion = false,
-                keymap = {
-                    accept = "<M-s>",
-                    next = "<M-w>",
-                    prev = "<M-m>",
-                    dismiss = "<M-x>",
-                },
-            },
-            nes = {
-                enabled = true,
-                keymap = {
-                    accept_and_goto = "<M-e>",
-                    accept = false,
-                    dismiss = "<Esc>",
-                },
-            }
-        }
     },
 }
