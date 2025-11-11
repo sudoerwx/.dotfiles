@@ -10,12 +10,18 @@ general_to_install=(curl cmake make unzip)
 ubuntu_to_install=(
     golang-go
     python3-pip
+    python3.12-venv
 )
 macos_to_install=(
     golang
     python3
 )
 install_package general_to_install ubuntu_to_install macos_to_install
+
+
+echo "Setting up Python virtual environment..."
+python3 -m venv ~/.venv --clear
+echo "Python virtual environment set up"
 
 echo "Installing deno..."
 curl -fsSL https://deno.land/install.sh | sh
@@ -24,6 +30,10 @@ echo "deno installed"
 echo "Installing fzf..."
 go install github.com/junegunn/fzf@latest
 echo "fzf installed"
+
+echo "Installing Cargo..."
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+echo "Cargo installed"
 
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     echo "Detected Linux OS."
