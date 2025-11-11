@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+selected=$(find ~/projects -mindepth 1 -maxdepth 1 -type d | fzf)
+
+if [[ -z "$selected" ]]; then
+  exit 0
+fi
+
+selected_name=$(basename $selected | tr ':,c ' '____')
+
+echo "$selected $selected_name"
