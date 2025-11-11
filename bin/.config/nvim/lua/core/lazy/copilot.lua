@@ -41,15 +41,14 @@ return {
                         dismiss = "<M-x>",
                     },
                 },
-                nes = {
-                    enabled = true,
-                    keymap = {
-                        accept_and_goto = "<M-e>",
-                        accept = false,
-                        dismiss = "<Esc>",
-                    },
-                }
-
+                -- nes = {
+                --     enabled = true,
+                --     keymap = {
+                --         accept_and_goto = "<M-e>",
+                --         accept = false,
+                --         dismiss = "<Esc>",
+                --     },
+                -- }
             })
             vim.keymap.set("i", "<M-s>", function()
                 require("copilot.suggestion").accept()

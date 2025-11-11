@@ -8,4 +8,3 @@ fi
 
 selected_name=$(basename $selected | tr ':,c ' '____')
 
-echo "$selected $selected_name"
