@@ -16,9 +16,9 @@ return {
         dependencies = {
             "copilotlsp-nvim/copilot-lsp"
         },
-        init = function()
+        config = function()
             vim.g.copilot_nes_debounce = 500
-            vim.g.copilot_proxy_strict_ssl = false
+            -- vim.g.copilot_proxy_strict_ssl = false
             require('copilot').setup({
                 -- copilot_model = "gpt-4o-copilot",
                 panel = {
@@ -33,7 +33,7 @@ return {
                     auto_trigger = true,
                     hide_during_completion = false,
                     keymap = {
-                        accept = "<M-s>",
+                        accept = "<M-l>",
                         next = "<M-w>",
                         prev = "<M-m>",
                         dismiss = "<M-x>",
@@ -49,6 +49,9 @@ return {
                 }
 
             })
+            vim.keymap.set("i", "<M-s>", function()
+                require("copilot.suggestion").accept()
+            end)
         end,
         cmd = "Copilot",
     },
