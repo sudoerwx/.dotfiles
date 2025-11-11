@@ -16,6 +16,8 @@ return {
         dependencies = {
             "copilotlsp-nvim/copilot-lsp"
         },
+        cmd = "Copilot",
+        event = "InsertEnter",
         config = function()
             vim.g.copilot_nes_debounce = 500
             -- vim.g.copilot_proxy_strict_ssl = false
@@ -52,7 +54,14 @@ return {
             vim.keymap.set("i", "<M-s>", function()
                 require("copilot.suggestion").accept()
             end)
+
+            vim.keymap.set("i", "<M-m>", function()
+                require("copilot.suggestion").prev()
+            end)
+
+            vim.keymap.set("i", "<M-w>", function()
+                require("copilot.suggestion").next()
+            end)
         end,
-        cmd = "Copilot",
     },
 }
