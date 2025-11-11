@@ -59,6 +59,7 @@ log "--------- dev-env ---------"
 cd "$script_dir" || exit
 
 copy_dir ./bin/.config ~/.config
+copy_dir ./bin/.local ~/.local
 copy_file ./bin/antigen.zsh ~/
 copy_file ./bin/.zshrc ~/
 copy_file ./bin/.tmux.conf ~/
