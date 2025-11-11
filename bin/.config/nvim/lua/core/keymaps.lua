@@ -25,7 +25,7 @@ vim.keymap.set('n', "<S-L>", ":BufferLineCycleNext<CR>", silent)
 -- formatting mappings
 -- vim.keymap.set('n', "<leader><leader>=", ":Neoformat<CR>", silent)
 vim.keymap.set('n', '<leader>==', function()
--- vim.lsp.buf.format { filter = function(client) return client.name ~= "ts_ls" end }
+    -- vim.lsp.buf.format { filter = function(client) return client.name ~= "ts_ls" end }
     require("conform").format()
 end, { noremap = true, silent = true, })
 
@@ -83,4 +83,4 @@ vim.keymap.set('n', '<leader>x', ':!chmod +x %<CR>', {})
 -- in lua
 -- vim.keymap.set({'n','i'},"<ScrollWheelUp>", "<C-Y>",{})
 -- vim.keymap.set({'n','i'},"<ScrollWheelDown>", "<C-E>",{})
-
+vim.keymap.set("n", "<C-f>", "<cmd>silent! !tmux neww tmux-sessionizer<CR>", {})
