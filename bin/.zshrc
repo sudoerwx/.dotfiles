@@ -74,4 +74,5 @@ export PATH="$PATH:$HOME/.cargo/bin"
 export DENO_TLS_CA_STORE=system
 
 bindkey -s ^f "tmux-sessionizer\n"
+bindkey -s '\eh' "tmux-sessionizer -s 0\n"
 
