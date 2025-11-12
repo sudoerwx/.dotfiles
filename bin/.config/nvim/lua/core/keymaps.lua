@@ -50,7 +50,7 @@ vim.keymap.set('i', "<C-p>", '<C-o>"+p', {})
 vim.keymap.set('v', 'p', '"_dP', {})
 
 -- Buffers delete
-vim.keymap.set('n', "<C-q>", ":Bdelete menu<CR>", {})
+vim.keymap.set('n', "<M-q>", ":Bdelete menu<CR>", {})
 
 -- Remapping for windows movements
 vim.keymap.set('n', '<leader>h', ':wincmd h<CR>', {})
