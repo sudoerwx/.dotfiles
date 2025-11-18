@@ -16,5 +16,6 @@ echo "Configuring Git..."
 git config --global user.name "sudoerwx"
 git config --global user.email "nazarvoronych@gmail.com"
 git config --global core.editor "nvim"
+git config --global push.autoSetupRemote true
 
 echo "Git/GitHub setup completed."
