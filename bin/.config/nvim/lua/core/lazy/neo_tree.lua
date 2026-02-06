@@ -50,6 +50,7 @@ return {
                             ["<leader>fg"] = "telescope_grep",
                             ["l"] = "open",
                             ["h"] = "close_node",
+                            ['<leader>a'] = 'avante_add_files',
                             ["o"] = "system_open",
                         },
                     },
@@ -74,6 +75,28 @@ return {
                                 vim.api.nvim_command("silent !xdg-open " .. path)
                             end
                         end,
+                        avante_add_files = function(state)
+                            local node = state.tree:get_node()
+                            local filepath = node:get_id()
+                            local relative_path = require('avante.utils').relative_path(filepath)
+
+                            local sidebar = require('avante').get()
+
+                            local open = sidebar:is_open()
+                            -- ensure avante sidebar is open
+                            if not open then
+                                require('avante.api').ask()
+                                sidebar = require('avante').get()
+                            end
+
+                            sidebar.file_selector:add_selected_file(relative_path)
+
+                            -- remove neo tree buffer
+                            if not open then
+                                sidebar.file_selector:remove_selected_file('neo-tree filesystem [1]')
+                            end
+                        end,
+
                     },
                     components = {
                         harpoon_index = function(config, node, _)
