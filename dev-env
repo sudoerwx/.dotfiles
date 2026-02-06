@@ -63,3 +63,4 @@ copy_dir ./bin/.local ~/.local
 copy_file ./bin/antigen.zsh ~/
 copy_file ./bin/.zshrc ~/
 copy_file ./bin/.tmux.conf ~/
+copy_file ./bin/.globalgitignore ~/
