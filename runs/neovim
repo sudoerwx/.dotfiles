@@ -35,6 +35,10 @@ echo "Installing Cargo..."
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 echo "Cargo installed"
 
+echo "Installing opencode..."
+curl -fsSL https://opencode.ai/install | bash
+echo "opencode installed"
+
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     echo "Detected Linux OS."
     echo "Downloading Neovim for Linux..."
