@@ -17,27 +17,5 @@ git config --global user.name "sudoerwx"
 git config --global user.email "nazarvoronych@gmail.com"
 git config --global core.editor "nvim"
 git config --global push.autoSetupRemote true
-git config --global core.excludesfile $HOME/.gitignore
-
-global_gitignore="$HOME/.gitignore"
-if [ ! -f "$global_gitignore" ]; then
-    echo "Setting up global .gitignore..."
-    cat <<EOF > "$global_gitignore"
-# Global gitignore template
-*.log
-.DS_Store
-node_modules/
-.idea/
-.vscode/
-
-# Custom system/user-specific ignores below this line
-AGENT.md
-EOF
-    echo "Created global .gitignore at $global_gitignore with default content."
-fi
-
-
-
-
-
+git config --global core.excludesfile $HOME/.globalgitignore
 echo "Git/GitHub setup completed."

@@ -1,0 +1,9 @@
+# Global gitignore template
+*.log
+.DS_Store
+node_modules/
+.idea/
+.vscode/
+
+# Custom system/user-specific ignores below this line
+AGENT.md
