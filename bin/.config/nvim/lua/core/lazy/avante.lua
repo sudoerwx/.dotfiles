@@ -14,13 +14,20 @@ return { {
         -- this file can contain specific instructions for your project
         instructions_file = "avante.md",
         -- for example
-        mode = "legacy",
-        provider = "codex", --"copilot",
+        ---@alias Provider "claude" | "openai" | "azure" | "gemini" | "cohere" | "copilot" | string
+        ---@type Provider
+        provider = "openai", -- The provider used in Aider mode or in the planning phase of Cursor Planning Mode
+        ---@alias Mode "agentic" | "legacy"
+        ---@type Mode
+        mode = "agentic",
         providers = {
             -- copilot = {
             --     -- model = "gpt-5.2",
             -- },
             -- codex = {}
+        },
+        behaviour = {
+            enable_fastapply = true, -- Enable Fast Apply feature
         },
     },
     dependencies = {
