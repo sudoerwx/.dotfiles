@@ -54,6 +54,13 @@ PATH="$GOPATH/bin:$PATH"
 ulimit -Sn 4096      # Increase open files.
 ulimit -Sl unlimited # Increase max locked memory.
 
+
+
+TMP_LOCAL_RC_FILE="$HOME/.tmp_local_rc"
+if [ -f "$TMP_LOCAL_RC_FILE" ]; then
+  source "$TMP_LOCAL_RC_FILE"
+fi
+
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
@@ -75,4 +82,6 @@ export DENO_TLS_CA_STORE=system
 
 bindkey -s ^f "tmux-sessionizer\n"
 bindkey -s '\eh' "tmux-sessionizer -s 0\n"
+
+
 

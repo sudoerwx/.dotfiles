@@ -15,11 +15,12 @@ return { {
         instructions_file = "avante.md",
         -- for example
         mode = "legacy",
-        provider = "copilot",
+        provider = "codex", --"copilot",
         providers = {
             -- copilot = {
-            --     model = "gpt-5.2",
+            --     -- model = "gpt-5.2",
             -- },
+            -- codex = {}
         },
     },
     dependencies = {
