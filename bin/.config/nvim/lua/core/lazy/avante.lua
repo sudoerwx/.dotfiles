@@ -14,9 +14,9 @@ return { {
         -- this file can contain specific instructions for your project
         instructions_file = "avante.md",
         -- for example
-        ---@alias Provider "claude" | "openai" | "azure" | "gemini" | "cohere" | "copilot" | string
+        ---@alias Provider "claude" | "openai" | "azure" | "gemini" | "cohere" | "copilot" | "codex" | string
         ---@type Provider
-        provider = "openai", -- The provider used in Aider mode or in the planning phase of Cursor Planning Mode
+        provider = "codex", -- The provider used in Aider mode or in the planning phase of Cursor Planning Mode
         ---@alias Mode "agentic" | "legacy"
         ---@type Mode
         mode = "agentic",
