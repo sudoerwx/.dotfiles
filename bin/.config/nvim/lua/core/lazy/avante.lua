@@ -17,17 +17,17 @@ return { {
         ---@alias Provider "claude" | "openai" | "azure" | "gemini" | "cohere" | "copilot" | "codex" | string
         ---@type Provider
         provider = "copilot", -- The provider used in Aider mode or in the planning phase of Cursor Planning Mode
-        ---@alias Mode "agentic" | "legacy"
-        ---@type Mode
-        mode = "agentic",
+        -- ---@alias Mode "agentic" | "legacy"
+        -- ---@type Mode
+        -- mode = "agentic",
         providers = {
             copilot = {
-                model = "gpt-4.1",
+                model = "gpt-4.1-2025-04-14",
             },
             -- codex = {}
         },
         behaviour = {
-            enable_fastapply = true, -- Enable Fast Apply feature
+            enable_fastapply = false, -- Enable Fast Apply feature
         },
     },
     dependencies = {
