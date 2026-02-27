@@ -16,14 +16,14 @@ return { {
         -- for example
         ---@alias Provider "claude" | "openai" | "azure" | "gemini" | "cohere" | "copilot" | "codex" | string
         ---@type Provider
-        provider = "codex", -- The provider used in Aider mode or in the planning phase of Cursor Planning Mode
+        provider = "copilot", -- The provider used in Aider mode or in the planning phase of Cursor Planning Mode
         ---@alias Mode "agentic" | "legacy"
         ---@type Mode
         mode = "agentic",
         providers = {
-            -- copilot = {
-            --     -- model = "gpt-5.2",
-            -- },
+            copilot = {
+                model = "gpt-4.1",
+            },
             -- codex = {}
         },
         behaviour = {
