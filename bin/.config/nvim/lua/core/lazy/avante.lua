@@ -22,7 +22,7 @@ return { {
         -- mode = "agentic",
         providers = {
             copilot = {
-                model = "gpt-4o",
+                model = "gpt-4.1",
             },
             -- codex = {}
         },
