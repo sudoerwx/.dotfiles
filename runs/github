@@ -18,4 +18,11 @@ git config --global user.email "nazarvoronych@gmail.com"
 git config --global core.editor "nvim"
 git config --global push.autoSetupRemote true
 git config --global core.excludesfile $HOME/.globalgitignore
+
+# submodule settings
+git config --global status.submodulesummary 1
+git config --global diff.submodule log
+git config --global submodule.recurse true
+git config --global push.recurseSubmodules on-demand
+git config --global fetch.recurseSubmodules on-demand
 echo "Git/GitHub setup completed."
