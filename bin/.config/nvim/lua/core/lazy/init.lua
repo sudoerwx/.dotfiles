@@ -8,7 +8,7 @@ return {
     'Asheq/close-buffers.vim',
     'sudoerwx/vim-ray-so-beautiful',
     'ryanoasis/vim-devicons',
-    'airblade/vim-rooter',
+    -- 'airblade/vim-rooter',
     {
         "gbprod/cutlass.nvim",
         opts = {
