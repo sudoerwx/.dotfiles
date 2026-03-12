@@ -1,5 +1,5 @@
 vim.cmd [[
-colorscheme   gruvbox-material "catppuccin kanagawa nord gruvbox-material nordic tokyonight
+colorscheme   catppuccin "catppuccin kanagawa nord gruvbox-material nordic tokyonight
 hi SignColumn guibg=none
 " hi CursorLineNR guibg=None
 " hi CursorLine guibg=None

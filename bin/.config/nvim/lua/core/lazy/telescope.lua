@@ -87,6 +87,7 @@ return {
         vim.keymap.set('n', '<leader>fw', function()
             builtin.grep_string({
                 search = vim.fn.input("Grep For > "),
+                additional_args = { "--hidden" },
 
                 file_ignore_patterns = file_ignore_patterns_grep,
             })
@@ -100,6 +101,7 @@ return {
         end, {})
         vim.keymap.set('n', '<leader>fg', function()
             builtin.live_grep({
+                additional_args = { "--hidden" },
                 file_ignore_patterns = file_ignore_patterns_grep,
             })
         end, {})
