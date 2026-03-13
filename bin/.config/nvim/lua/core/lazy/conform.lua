@@ -16,8 +16,7 @@ local function tsformat(bufnr)
     return {
         first(bufnr, "prettierd", "prettier"),
         first(bufnr, 'eslint_d', 'eslint'),
-        lsp_format =
-        "fallback" --[[ 'eslint', "prettier",stop_after_first = true, ]]
+        lsp_format = "fallback", --[[ 'eslint', "prettier",stop_after_first = true, ]]
     }
 end
 
@@ -60,7 +59,6 @@ return {
                 end
                 require("conform").format({ async = true, lsp_format = "fallback", range = range })
             end, { range = true })
-
         end
     }
 }

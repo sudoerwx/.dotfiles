@@ -23,7 +23,11 @@ vim.keymap.set('n', "<S-H>", ":BufferLineCyclePrev<CR>", silent)
 vim.keymap.set('n', "<S-L>", ":BufferLineCycleNext<CR>", silent)
 
 -- formatting mappings
-vim.keymap.set('n', "<leader>=n", ":Neoformat<CR>", silent)
+-- vim.keymap.set('n', "<leader>=n", ":Neoformat<CR>", silent)
+vim.keymap.set({ 'n', 'v' }, '<leader>=n', function()
+    vim.lsp.buf.format()
+end, { noremap = true, silent = true, })
+
 vim.keymap.set({ 'n', 'v' }, '<leader>==', function()
     -- vim.lsp.buf.format { filter = function(client) return client.name ~= "ts_ls" end }
     require("conform").format()
