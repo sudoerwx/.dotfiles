@@ -35,6 +35,8 @@ hi TelescopeBorder guifg=#5eacd guibg=none
 
 " hi Comment guifg=#8e95a0 guibg=none
 " hi Comment guifg=#8e9ea0 guibg=none
+hi Comment guifg=#A3A3B5 guibg=none
+hi CopilotSuggestion guifg=#AFB5A6 guibg=none
 
 hi PmenuSel guifg=#cdd6f4 guibg=#45475a
 hi Pmenu guibg=#2b2b3c
