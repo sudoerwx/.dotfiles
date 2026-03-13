@@ -23,11 +23,12 @@ vim.keymap.set('n', "<S-H>", ":BufferLineCyclePrev<CR>", silent)
 vim.keymap.set('n', "<S-L>", ":BufferLineCycleNext<CR>", silent)
 
 -- formatting mappings
--- vim.keymap.set('n', "<leader><leader>=", ":Neoformat<CR>", silent)
-vim.keymap.set('n', '<leader>==', function()
+vim.keymap.set('n', "<leader>=n", ":Neoformat<CR>", silent)
+vim.keymap.set({ 'n', 'v' }, '<leader>==', function()
     -- vim.lsp.buf.format { filter = function(client) return client.name ~= "ts_ls" end }
     require("conform").format()
 end, { noremap = true, silent = true, })
+
 
 -- save mappings
 vim.keymap.set('n', "<C-S>", ":w<CR>", {})

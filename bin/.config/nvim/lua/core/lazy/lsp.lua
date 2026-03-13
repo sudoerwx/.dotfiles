@@ -54,7 +54,6 @@ return {
 
 
         vim.lsp.config('ts_ls', {
-
             settings = {
                 tsserver_file_preferences = {
                     includeInlayParameterNameHints = 'all',
