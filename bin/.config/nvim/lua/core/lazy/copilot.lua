@@ -20,7 +20,7 @@ return {
         event = "InsertEnter",
         config = function()
             vim.g.copilot_nes_debounce = 500
-            -- vim.g.copilot_proxy_strict_ssl = false
+            vim.g.copilot_proxy_strict_ssl = false
             require('copilot').setup({
                 -- copilot_model = "gpt-4o-copilot",
                 panel = {
