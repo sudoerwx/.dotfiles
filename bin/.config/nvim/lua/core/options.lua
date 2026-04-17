@@ -79,3 +79,4 @@ vim.opt.wrap = true
 vim.g.netrw_fastbrowse = 0
 vim.g.netrw_keepdir = 0
 vim.g.netrw_localcopydircmd = 'cp -r'
+vim.o.winborder = 'rounded'
