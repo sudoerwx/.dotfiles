@@ -73,6 +73,9 @@ return {
                 }
             },
             defaults = {
+                preview = {
+                  treesitter = false,
+                },
                 layout_strategy = 'vertical'
                 -- layout_config = {
                 --     vertical = { width = 0.9 }
