@@ -4,7 +4,7 @@ local silentNoremap = { noremap = true, silent = true, }
 -- LSP mappings
 vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, silentNoremap)
 vim.keymap.set('n', 'gd', vim.lsp.buf.definition, silentNoremap)
-vim.keymap.set('n', 'K', vim.lsp.buf.hover, silentNoremap)
+-- vim.keymap.set('n', 'K', vim.lsp.buf.hover, silentNoremap)
 vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, silentNoremap)
 vim.keymap.set({ 'n', 'i' }, '<C-k>', vim.lsp.buf.signature_help, silentNoremap)
 vim.keymap.set('n', 'gt', vim.lsp.buf.type_definition, silentNoremap)
