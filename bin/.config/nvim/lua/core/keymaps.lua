@@ -89,3 +89,12 @@ vim.keymap.set('n', '<leader>x', ':!chmod +x %<CR>', {})
 -- vim.keymap.set({'n','i'},"<ScrollWheelUp>", "<C-Y>",{})
 -- vim.keymap.set({'n','i'},"<ScrollWheelDown>", "<C-E>",{})
 vim.keymap.set("n", "<C-f>", "<cmd>silent! !tmux neww tmux-sessionizer<CR>", {})
+
+-- vim.keymap.set('n', '<leader>an', ':CodeCompanionActions<CR>', {})
+-- vim.keymap.set('n', '<leader>at', ':CodeCompanionChat Toggle<CR>', {})
+vim.keymap.set({ "n", "v" }, "<leader>an", "<cmd>CodeCompanionActions<cr>", { noremap = true, silent = true })
+vim.keymap.set({ "n", "v" }, "<leader>at", "<cmd>CodeCompanionChat Toggle<cr>", { noremap = true, silent = true })
+vim.keymap.set("v", "ga", "<cmd>CodeCompanionChat Add<cr>", { noremap = true, silent = true })
+
+-- Expand 'cc' into 'CodeCompanion' in the command line
+vim.cmd([[cab cc CodeCompanion]])
