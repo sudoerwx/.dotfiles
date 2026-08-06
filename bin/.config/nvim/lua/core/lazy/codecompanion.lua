@@ -12,8 +12,28 @@ return {
                         model = "gpt-4.1",
                     },
                 },
-            }
+                inline = {
+                    keymaps = {
+                        accept_change = {
+                            modes = { n = "ga" },
+                            description = "Accept the suggested change",
+                        },
+                        reject_change = {
+                            modes = { n = "gr" },
+                            opts = { nowait = true },
+                            description = "Reject the suggested change",
+                        },
+                        stop = {
+                            modes = { n = "q" },
+                            index = 4,
+                            callback = "keymaps.stop",
+                            description = "Stop request",
+                        },
 
+                    },
+
+                },
+            }
 
         },
         dependencies = {
