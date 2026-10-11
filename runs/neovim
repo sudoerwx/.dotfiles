@@ -42,7 +42,7 @@ echo "opencode installed"
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     echo "Detected Linux OS."
     echo "Downloading Neovim for Linux..."
-    curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz
+    curl -LO https://github.com/neovim/neovim/releases/download/stable/nvim-linux-x86_64.tar.gz
     echo "Extracting Neovim..."
     sudo rm -rf /opt/nvim-linux-x86_64
     echo "Installing Neovim to /opt..."
@@ -53,7 +53,7 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
 elif [[ "$OSTYPE" == "darwin"* ]]; then
     echo "Detected macOS."
     echo "Downloading Neovim for macOS..."
-    curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim-macos-x86_64.tar.gz
+    curl -LO https://github.com/neovim/neovim/releases/download/stable/nvim-macos-x86_64.tar.gz
     echo "Extracting Neovim..."
     sudo rm -rf /opt/nvim-macos-x86_64
     echo "Installing Neovim to /opt..."
