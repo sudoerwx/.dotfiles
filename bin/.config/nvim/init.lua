@@ -18,3 +18,7 @@ end
 if file_exists(vim.fn.stdpath('config') .. '/lua/core/localnvimvariables.lua') then
   require('core.localnvimvariables')
 end
+
+if file_exists(vim.fn.expand('~/localnvimvariables.lua')) then
+  require('core.localnvimvariables')
+end
