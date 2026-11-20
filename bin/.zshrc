@@ -17,6 +17,7 @@ export EDITOR='nvim'
 export REACT_EDITOR='nvim'
 
 export PATH="$HOME/.cargo/bin:$PATH"
+export SUDO_EDITOR="$(command -v nvim || command -v vim || command -v vi)"
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#95a5a6"
 
