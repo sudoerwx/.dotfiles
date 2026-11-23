@@ -3,6 +3,9 @@ return {
         "olimorris/codecompanion.nvim",
         -- version = "^19.13.0",
         opts = {
+            extensions = {
+                spinner = {},
+            },
             interactions = {
                 chat = {
                     -- You can specify an adapter by name and model (both ACP and HTTP)
@@ -54,6 +57,7 @@ return {
         dependencies = {
             "nvim-lua/plenary.nvim",
             "nvim-treesitter/nvim-treesitter",
+            "franco-ruggeri/codecompanion-spinner.nvim",
         },
     },
     {

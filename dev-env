@@ -59,6 +59,10 @@ log "--------- dev-env ---------"
 cd "$script_dir" || exit
 
 copy_dir ./bin/.config ~/.config
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    execute mkdir -p "$HOME/Library/Preferences/clangd"
+    execute cp ./bin/.config/clangd/config.yaml "$HOME/Library/Preferences/clangd/config.yaml"
+fi
 copy_dir ./bin/.local ~/.local
 copy_file ./bin/antigen.zsh ~/
 copy_file ./bin/.zshrc ~/

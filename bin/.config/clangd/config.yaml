@@ -1,0 +1,7 @@
+# Ignore GCC code-generation flags unsupported by clangd.
+# This affects editor parsing only; build flags remain unchanged.
+CompileFlags:
+  Remove:
+    - -mlongcalls
+    - -fstrict-volatile-bitfields
+    - -fno-tree-switch-conversion

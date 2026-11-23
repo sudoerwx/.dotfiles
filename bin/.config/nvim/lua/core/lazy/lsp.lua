@@ -20,8 +20,24 @@ return {
 
         require("mason").setup()
 
+        local clangd_drivers = {
+            -- Standard PlatformIO installation.
+            vim.env.HOME .. "/.platformio/packages/toolchain-*/bin/*",
+            -- Project-local PlatformIO installations under the home directory.
+            vim.env.HOME .. "/**/.pio-core/packages/toolchain-*/bin/*",
+        }
+
+        vim.lsp.config("clangd", {
+            cmd = {
+                vim.fn.stdpath("data") .. "/mason/bin/clangd",
+                "--background-index",
+                "--query-driver=" .. table.concat(clangd_drivers, ","),
+            },
+        })
+
         require("mason-lspconfig").setup({
             ensure_installed = {
+                "clangd",
                 "lua_ls",
                 "rust_analyzer",
                 "gopls",
