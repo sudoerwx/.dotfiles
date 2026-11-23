@@ -1,15 +1,15 @@
 return {
     {
         "olimorris/codecompanion.nvim",
-        version = "^19.13.0",
+        -- version = "^19.13.0",
         opts = {
             interactions = {
                 chat = {
                     -- You can specify an adapter by name and model (both ACP and HTTP)
                     adapter = {
                         -- name = "copilot",
-                        -- name = "codex-acp",
-                        name= "copilot_acp",
+                        name = "codex",
+                        -- name= "copilot_acp",
                         -- model = "gpt-4.1",
                         model = "gpt-6.1-sol",
                     },
