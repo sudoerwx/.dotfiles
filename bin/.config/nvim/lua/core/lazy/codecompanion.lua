@@ -35,8 +35,21 @@ return {
                     },
 
                 },
-            }
-
+            },
+            adapters = {
+                acp = {
+                    codex = function()
+                        return require("codecompanion.adapters").extend("codex", {
+                            defaults = {
+                                auth_method = "chat-gpt", -- Can be "api-key" or "chat-gpt"
+                            },
+                            -- env = {
+                            --     OPENAI_API_KEY = "my-api-key",
+                            -- },
+                        })
+                    end,
+                },
+            },
         },
         dependencies = {
             "nvim-lua/plenary.nvim",
